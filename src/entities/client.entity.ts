@@ -15,6 +15,9 @@ export class Client {
   @Column({ nullable: false })
   address: string;
 
+  @Column({default: 'Ponto de referencia não informado'})
+  referencePoint: string
+
   @ManyToOne(
     type => Order,
     order => order.client,
