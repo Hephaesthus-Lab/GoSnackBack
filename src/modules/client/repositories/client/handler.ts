@@ -116,7 +116,7 @@ export class ClientRepositoryHandler {
 
   async throwExceptionIfClientTelephoneExists(telephone: string): Promise<any> {
     const result = await this.clientRepository.findByTelephone(telephone);
-    if (result)
+    if (result.length > 0)
       throw new HttpException(
         'Esse telefone já existe',
         HttpStatus.BAD_REQUEST,
