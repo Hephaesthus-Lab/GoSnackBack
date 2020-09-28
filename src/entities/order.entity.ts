@@ -12,8 +12,8 @@ export class Order {
   @Column()
   status: number;
 
-  @Column({ type: 'json' })
-  products: JSON;
+  @Column({ nullable: false, type: 'longtext' })
+  products: string;
 
   @OneToMany(
     type => Client,
