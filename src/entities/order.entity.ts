@@ -33,8 +33,8 @@ export class Order {
   @Column({ nullable: false, type: 'longtext' })
   products: string;
 
-  @CreateDateColumn()
-  createdAt: string;
+  @Column()
+  createdAt: Date;
 
   @ManyToOne(
     type => Client,
