@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Order } from './order.entity';
 
 @Entity()
@@ -15,10 +21,10 @@ export class Client {
   @Column({ nullable: false })
   address: string;
 
-  @Column({default: 'Ponto de referencia não informado'})
-  referencePoint: string
+  @Column({ default: 'Ponto de referencia não informado' })
+  referencePoint: string;
 
-  @ManyToOne(
+  @OneToMany(
     type => Order,
     order => order.client,
   )

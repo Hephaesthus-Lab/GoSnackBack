@@ -10,5 +10,6 @@ import { ProductRepositoryHandler } from './repositories/product/handler';
   providers: [ProductService, ProductRepo, ProductRepositoryHandler],
   controllers: [ProductController],
   imports: [TypeOrmModule.forFeature([Product])],
+  exports: [ProductService, ProductRepo, ProductRepositoryHandler],
 })
 export class ProductModule {}

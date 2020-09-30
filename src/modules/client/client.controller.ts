@@ -25,6 +25,11 @@ export class ClientController {
     return await this.clientService.findOneById(id);
   }
 
+  @Get('find')
+  async findAll(): Promise<Client[]> {
+    return await this.clientService.find();
+  }
+
   @Get('findByName')
   async findByName(@Query('name') name: string): Promise<Client[]> {
     return await this.clientService.findByName(name);
