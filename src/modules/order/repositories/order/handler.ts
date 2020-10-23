@@ -8,8 +8,8 @@ export class OrderRepositoryHandler {
 
   async insert(order: Order): Promise<Order> {
     try {
-      order.id = null;
-      return await this.orderRepository.insert(order);
+      const { id, ...rest } = order;
+      return await this.orderRepository.insert(rest);
     } catch (e) {
       console.log(e);
       throw new HttpException(

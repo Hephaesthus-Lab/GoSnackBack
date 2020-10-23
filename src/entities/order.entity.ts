@@ -5,7 +5,7 @@ import { Product } from './product.entity';
 @Entity()
 export class Order {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column({ nullable: true })
   tableNumber?: number;

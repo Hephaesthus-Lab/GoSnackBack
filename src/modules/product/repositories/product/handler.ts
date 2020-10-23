@@ -8,7 +8,6 @@ export class ProductRepositoryHandler {
 
   async insert(product: Product): Promise<Product> {
     try {
-      product.id = null;
       const result = await this.repository.insert(product);
       product.id = result.identifiers[0].id;
       return product;
