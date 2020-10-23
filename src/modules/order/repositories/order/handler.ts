@@ -8,6 +8,7 @@ export class OrderRepositoryHandler {
 
   async insert(order: Order): Promise<Order> {
     try {
+      order.id = null;
       return await this.orderRepository.insert(order);
     } catch (e) {
       console.log(e);

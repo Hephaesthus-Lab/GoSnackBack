@@ -8,6 +8,7 @@ export class ClientRepositoryHandler {
 
   async insert(client: Client): Promise<Client> {
     try {
+      client.id = null;
       const result = await this.clientRepository.insert(client);
       client.id = result.identifiers[0].id;
       return client;
