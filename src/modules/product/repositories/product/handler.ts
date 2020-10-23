@@ -8,7 +8,8 @@ export class ProductRepositoryHandler {
 
   async insert(product: Product): Promise<Product> {
     try {
-      const result = await this.repository.insert(product);
+      const { id, ...rest } = product;
+      const result = await this.repository.insert(rest);
       product.id = result.identifiers[0].id;
       return product;
     } catch (e) {

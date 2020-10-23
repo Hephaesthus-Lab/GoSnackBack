@@ -10,7 +10,7 @@ import { Order } from './order.entity';
 @Entity()
 export class Client {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column({ nullable: false })
   name: string;
