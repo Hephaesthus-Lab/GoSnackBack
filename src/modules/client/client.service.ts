@@ -46,4 +46,8 @@ export class ClientService {
   async delete(id: string): Promise<boolean> {
     return await this.clientRepositoryHandler.delete(id);
   }
+
+  async totalClients(): Promise<{ numberOfClients: number }> {
+    return await this.clientRepositoryHandler.totalClients();
+  }
 }

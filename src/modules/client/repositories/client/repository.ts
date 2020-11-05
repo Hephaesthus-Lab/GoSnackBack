@@ -48,4 +48,9 @@ export class ClientRepo {
   async delete(id: string): Promise<DeleteResult> {
     return await this.db.delete(id);
   }
+
+  async totalClients(): Promise<{ numberOfClients: number }> {
+    const result = await this.db.count();
+    return { numberOfClients: result };
+  }
 }

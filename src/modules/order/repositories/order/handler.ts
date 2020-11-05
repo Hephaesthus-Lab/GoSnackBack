@@ -79,4 +79,20 @@ export class OrderRepositoryHandler {
         HttpStatus.BAD_REQUEST,
       );
   }
+
+  async getTotalOrder(): Promise<{ numberOfOrders: number }> {
+    try {
+      return this.orderRepository.getTotalOrder();
+    } catch (e) {
+      throw new HttpException('Algo deu errado', HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async totalSold(): Promise<{ totalSold: number }> {
+    try {
+      return this.orderRepository.totalSold();
+    } catch (e) {
+      throw new HttpException('Algo deu errado', HttpStatus.BAD_REQUEST);
+    }
+  }
 }

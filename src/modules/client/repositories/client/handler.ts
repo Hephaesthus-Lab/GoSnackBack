@@ -123,4 +123,15 @@ export class ClientRepositoryHandler {
         HttpStatus.BAD_REQUEST,
       );
   }
+
+  async totalClients(): Promise<{ numberOfClients: number }> {
+    try {
+      return this.clientRepository.totalClients();
+    } catch (e) {
+      throw new HttpException(
+        'Algo deu errado ao puxar esse dado',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
 }

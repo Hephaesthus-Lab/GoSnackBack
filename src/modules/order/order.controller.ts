@@ -29,6 +29,16 @@ export class OrderController {
     return await this.orderService.findOne(id);
   }
 
+  @Get('totalOrder')
+  async totalOrders(): Promise<{ numberOfOrders: number }> {
+    return await this.orderService.getTotalOrder();
+  }
+
+  @Get('totalSold')
+  async totalSold(): Promise<{ totalSold: number }> {
+    return await this.orderService.getTotalSold();
+  }
+
   @Put('update')
   async update(@Body() order: Order): Promise<Order> {
     return await this.orderService.update(order);

@@ -30,4 +30,12 @@ export class OrderService {
     await this.orderRepositoryHandler.throwExceptionIfOrderNotExists(id);
     return await this.orderRepositoryHandler.delete(id);
   }
+
+  async getTotalOrder(): Promise<{ numberOfOrders: number }> {
+    return await this.orderRepositoryHandler.getTotalOrder();
+  }
+
+  async getTotalSold(): Promise<{ totalSold: number }> {
+    return await this.orderRepositoryHandler.totalSold();
+  }
 }

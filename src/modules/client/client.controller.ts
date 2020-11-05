@@ -47,6 +47,11 @@ export class ClientController {
     return await this.clientService.findByAddress(address);
   }
 
+  @Get('totalClients')
+  async totalClients(): Promise<{ numberOfClients: number }> {
+    return await this.clientService.totalClients();
+  }
+
   @Put('update')
   async update(@Body() client: Client): Promise<Client> {
     return await this.clientService.update(client);

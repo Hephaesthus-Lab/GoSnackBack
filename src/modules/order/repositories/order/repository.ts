@@ -43,4 +43,16 @@ export class OrderRepo {
   async delete(id: string): Promise<DeleteResult> {
     return await this.db.delete(id);
   }
+
+  async getTotalOrder(): Promise<{ numberOfOrders: number }> {
+    const result = await this.db.count();
+    return { numberOfOrders: result };
+  }
+
+  async totalSold(): Promise<{ totalSold: number }> {
+    const orders = await this.db.find();
+    let valueAmount = 0;
+    orders.map(order => (valueAmount += order.total));
+    return { totalSold: valueAmount };
+  }
 }
