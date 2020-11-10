@@ -1,6 +1,11 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Client } from './client.entity';
-import { Product } from './product.entity';
 
 @Entity()
 export class Order {
@@ -22,8 +27,11 @@ export class Order {
   @Column({ nullable: false, type: 'longtext' })
   products: string;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
+
+  @Column({ default: false })
+  isDelivery: boolean;
 
   @ManyToOne(
     type => Client,

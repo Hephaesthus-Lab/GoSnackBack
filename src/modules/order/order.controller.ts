@@ -39,6 +39,16 @@ export class OrderController {
     return await this.orderService.getTotalSold();
   }
 
+  @Get('findDelivery')
+  async findDelivery(): Promise<Order[]> {
+    return await this.orderService.findDelivery();
+  }
+
+  @Get('findLocal')
+  async findLocal(): Promise<Order[]> {
+    return await this.orderService.findLocal();
+  }
+
   @Put('update')
   async update(@Body() order: Order): Promise<Order> {
     return await this.orderService.update(order);

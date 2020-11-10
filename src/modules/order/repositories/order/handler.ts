@@ -95,4 +95,20 @@ export class OrderRepositoryHandler {
       throw new HttpException('Algo deu errado', HttpStatus.BAD_REQUEST);
     }
   }
+
+  async findDelivery(): Promise<Order[]> {
+    try {
+      return this.orderRepository.findDelivery();
+    } catch (e) {
+      throw new HttpException('Algo deu errado', HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async findLocal(): Promise<Order[]> {
+    try {
+      return this.orderRepository.findLocal();
+    } catch (e) {
+      throw new HttpException('Algo deu errado', HttpStatus.BAD_REQUEST);
+    }
+  }
 }

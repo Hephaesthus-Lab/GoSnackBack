@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/entities/order.entity';
 import { DeleteResult, Repository } from 'typeorm';
@@ -54,5 +54,24 @@ export class OrderRepo {
     let valueAmount = 0;
     orders.map(order => (valueAmount += order.total));
     return { totalSold: valueAmount };
+  }
+
+  async findDelivery(): Promise<Order[]> {
+    const result = await this.db.find({
+      where: {
+        isDelivery: true,
+      },
+    });
+
+    return result;
+  }
+
+  async findLocal(): Promise<Order[]> {
+    const result = await this.db.find({
+      where: {
+        isDelivery: false,
+      },
+    });
+    return result;
   }
 }

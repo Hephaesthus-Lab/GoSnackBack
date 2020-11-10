@@ -38,4 +38,12 @@ export class OrderService {
   async getTotalSold(): Promise<{ totalSold: number }> {
     return await this.orderRepositoryHandler.totalSold();
   }
+
+  async findDelivery(): Promise<Order[]> {
+    return await this.orderRepositoryHandler.findDelivery();
+  }
+
+  async findLocal(): Promise<Order[]> {
+    return await this.orderRepositoryHandler.findLocal();
+  }
 }
