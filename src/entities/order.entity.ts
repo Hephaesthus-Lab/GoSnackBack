@@ -1,10 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Client } from './client.entity';
 
 @Entity()
@@ -27,7 +21,7 @@ export class Order {
   @Column({ nullable: false, type: 'longtext' })
   products: string;
 
-  @CreateDateColumn()
+  @Column({ nullable: true })
   createdAt: Date;
 
   @Column({ default: false })
